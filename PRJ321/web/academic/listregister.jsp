@@ -16,8 +16,9 @@
                 <hr>
                 <ul class="list-group">
                     <c:forEach var="student" items="${listRegister}">
-                        <form>
+                        <form action="ViewStudentServlet" method="POST">
                             <li class="list-group-item">${student.firstName} ${student.lastName}
+                                <input type="hidden" value="${student.id}" name="studentId" />
                                 <button type="submit" class="btn btn-info">Info</button>
                             </li>
                         </form>

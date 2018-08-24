@@ -75,4 +75,41 @@ public class StudentDAO {
         }
         return null;
     }
+
+    public Student getStudentById(int id) {
+        Connection con = null;
+        DBContext db = new DBContext();
+        ArrayList<Student> listStudent = new ArrayList<>();
+        try {
+            con = db.getConnection();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT firstName, lastName, DOB, gender, cardNo, "
+                    + "cardDate, cardPlace, address, telephone, email FROM "
+                    + "Student WHERE id = '" + id + "'";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                String firstName = rs.getString(1);
+                String lastName = rs.getString(2);
+                Date DOB = rs.getDate(3);
+                boolean gender = rs.getBoolean(4);
+                int cardNo = rs.getInt(5);
+                Date cardDate = rs.getDate(6);
+                String cardPlace = rs.getString(7);
+                String address = rs.getString(8);
+                int telephone = rs.getInt(9);
+                String email = rs.getString(10);
+
+                Student std = new Student(id, firstName, lastName, DOB, gender,
+                        cardNo, cardDate, cardPlace, address, telephone, email);
+                listStudent.add(std);
+                return std;
+            }
+            rs.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }

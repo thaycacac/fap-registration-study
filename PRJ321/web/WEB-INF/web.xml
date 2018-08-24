@@ -12,6 +12,10 @@
         <servlet-name>AcademicLoginServlet</servlet-name>
         <servlet-class>servlet.AcademicLoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewStudentServlet</servlet-name>
+        <servlet-class>servlet.ViewStudentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/student/RegisterServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>AcademicLoginServlet</servlet-name>
         <url-pattern>/academic/AcademicLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewStudentServlet</servlet-name>
+        <url-pattern>/academic/ViewStudentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
