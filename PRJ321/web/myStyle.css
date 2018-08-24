@@ -30,3 +30,9 @@ input.form-control.input-student {
 .btn-info {
   margin-left: 15px;
 }
+.error {
+  color: red;
+}
+.register-success {
+  color: green;
+}

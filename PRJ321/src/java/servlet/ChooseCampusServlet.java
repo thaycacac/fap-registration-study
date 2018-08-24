@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,6 @@ public class ChooseCampusServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //TODO: get campus id to insert student_campus
-        response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         
         request.getRequestDispatcher("/student/register.jsp").forward(request, response);

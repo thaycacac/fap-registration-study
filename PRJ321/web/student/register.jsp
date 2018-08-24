@@ -11,6 +11,7 @@
     <body>
         <div class="container">
             <div class="container-form">
+                <h5 class="error">${error}</h5>
                 <h1>Information Student</h1>
                 <hr>
                 <form action="RegisterServlet" method="POST">
