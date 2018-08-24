@@ -8,6 +8,7 @@ import java.sql.Date;
  */
 public class Student {
 
+    private int id;
     private String firstName;
     private String lastName;
     private Date DOB;
@@ -22,7 +23,8 @@ public class Student {
     public Student() {
     }
 
-    public Student(String firstName, String lastName, Date DOB, boolean gender, int cardNo, Date cardDate, String cardPlace, String address, int telephone, String email) {
+    public Student(int id, String firstName, String lastName, Date DOB, boolean gender, int cardNo, Date cardDate, String cardPlace, String address, int telephone, String email) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.DOB = DOB;
@@ -33,6 +35,14 @@ public class Student {
         this.address = address;
         this.telephone = telephone;
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {

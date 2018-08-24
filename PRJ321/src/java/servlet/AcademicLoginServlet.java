@@ -1,7 +1,10 @@
 package servlet;
 
 import dal.AcademicDAO;
+import dal.StudentDAO;
+import dataobj.Student;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +25,19 @@ public class AcademicLoginServlet extends HttpServlet {
         AcademicDAO acdDao = new AcademicDAO();
         String checkPassword = acdDao.getPassword(username);
         if (password.equals(checkPassword)) {
-            System.out.println("true");
+            StudentDAO stdDao = new StudentDAO();
+            ArrayList<Student> listStudent = new ArrayList<>();
+            ArrayList<Student> listRegister = new ArrayList<>();
+
+            listStudent = stdDao.getListStudentRegister();
+            for (Student student : listStudent) {
+                if (student.getCardNo() == 0) {
+                    listRegister.add(student);
+                }
+            }
+
+            request.setAttribute("listRegister", listRegister);
+            request.getRequestDispatcher("/academic/listregister.jsp").forward(request, response);
         } else {
             request.setAttribute("errorLogin", "Wrong username or password!!!");
             request.getRequestDispatcher("/academic/login.jsp").forward(request, response);

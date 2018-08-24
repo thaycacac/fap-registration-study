@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,9 +15,13 @@
                 <h1>List Student </h1>
                 <hr>
                 <ul class="list-group">
-                    <li class="list-group-item">Pham Ngoc Hoa<button type="button" class="btn btn-info">Info</button></li>
-                    <li class="list-group-item">Tran Quang Nhat<button type="button" class="btn btn-info">Info</button></li>
-                    <li class="list-group-item">Nguyen Hai Nam<button type="button" class="btn btn-info">Info</button></li>
+                    <c:forEach var="student" items="${listRegister}">
+                        <form>
+                            <li class="list-group-item">${student.firstName} ${student.lastName}
+                                <button type="submit" class="btn btn-info">Info</button>
+                            </li>
+                        </form>
+                    </c:forEach>
                 </ul>
             </div>
         </div>

@@ -50,18 +50,19 @@ public class StudentDAO {
             String sql = Query.SELECT_LIST_STUDENT;
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
-                Date DOB = rs.getDate(3);
-                boolean gender = rs.getBoolean(4);
-                int cardNo = rs.getInt(5);
-                Date cardDate = rs.getDate(6);
-                String cardPlace = rs.getString(7);
-                String address = rs.getString(8);
-                int telephone = rs.getInt(9);
-                String email = rs.getString(10);
+                int id = rs.getInt(1);
+                String firstName = rs.getString(2);
+                String lastName = rs.getString(3);
+                Date DOB = rs.getDate(4);
+                boolean gender = rs.getBoolean(5);
+                int cardNo = rs.getInt(6);
+                Date cardDate = rs.getDate(7);
+                String cardPlace = rs.getString(8);
+                String address = rs.getString(9);
+                int telephone = rs.getInt(10);
+                String email = rs.getString(11);
 
-                Student std = new Student(firstName, lastName, DOB, gender,
+                Student std = new Student(id, firstName, lastName, DOB, gender,
                         cardNo, cardDate, cardPlace, address, telephone, email);
                 listStudent.add(std);
             }
