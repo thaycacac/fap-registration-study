@@ -13,7 +13,7 @@
             <div class="container-form">
                 <h1>Information Student</h1>
                 <hr>
-                <form>
+                <form action="RegisterServlet" method="POST">
                     <div class="form-group">
                         <label>First Name</label>
                         <input type="text" class="form-control" placeholder="Enter firstname" name="firstname">
@@ -29,8 +29,8 @@
                     <div class="form-group">
                         <label>Gender</label>
                         <div>
-                            <input type="radio" name="gender" value="male" class="gender"> Male
-                            <input type="radio" name="gender" value="female" class="gender">Female
+                            <input type="radio" name="gender" value="1" class="gender"> Male
+                            <input type="radio" name="gender" value="0" class="gender">Female
                         </div>
                     </div>
                     <div class="form-group">
