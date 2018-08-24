@@ -17,6 +17,9 @@ public class ChooseCampusServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //TODO: get campus id to insert student_campus
+        System.out.println("a");
+        
+        request.getRequestDispatcher("/student/register.jsp").forward(request, response);
     }
 
     

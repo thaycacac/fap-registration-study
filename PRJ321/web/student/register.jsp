@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>FPT University</title>
+        <title>Register</title>
         <link href="../myStyle.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
@@ -11,22 +11,49 @@
     <body>
         <div class="container">
             <div class="container-form">
-                <h1>FPT University</h1>
-                <p>FPT University opens its Enrollment page for students to register their study campus and their specialization.</p>
+                <h1>Information Student</h1>
                 <hr>
                 <form>
                     <div class="form-group">
-                        <label>Select Campus</label>
-                        <select class="form-control" name="campus">
-                            <option value="8">FU-Hòa Lạc</option>
-                            <option value="9">FU-Hồ Chí Minh</option>
-                            <option value="10">FU-Đà Nẵng</option>
-                            <option value="11">FU-Cần Thơ</option>
-                            <option value="12">MSE</option>
-                            <option value="13">FE-LAO</option>
+                        <label>First Name</label>
+                        <input type="text" class="form-control" placeholder="Enter firstname" name="firstname">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter lastname" name="lastname">
+                    </div>
+                    <div class="form-group">
+                        <label>Date Of Birth</label>
+                        <input type="date" class="form-control" name="dob">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div>
+                            <input type="radio" name="gender" value="male" class="gender"> Male
+                            <input type="radio" name="gender" value="female" class="gender">Female
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" placeholder="Enter address" name="address">
+                    </div>
+                    <div class="form-group">
+                        <label>Telephone</label>
+                        <input type="text" class="form-control" placeholder="Enter telephone" name="telephone">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="Enter email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Specialized</label>
+                        <select class="form-control" name="specialized">
+                            <option value="SE">Kỹ Thuật Phần Mềm</option>
+                            <option value="IA">An Toàn Thông Tin</option>
+                            <option value="SB">Quản Trị Kinh Doanh</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary my-botton">Next</button>
+                    <button type="submit" class="btn btn-primary">Register</button>
                 </form>
             </div>
         </div>
