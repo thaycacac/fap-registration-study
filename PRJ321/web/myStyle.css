@@ -10,6 +10,13 @@ body {
   border-radius: 15px;
   padding: 60px;
 }
+.container-login {
+  width: 60%;
+  margin: 50px auto 50px auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: 60px;
+}
 .gender {
   margin-left: 10px;
 }
@@ -20,7 +27,7 @@ body {
 /* ACADEMIC */
 input.form-control.input-student {
   background-color: #ced4da;
-}
+}s
 .botton-academic {
   margin-top: 20px;
 }

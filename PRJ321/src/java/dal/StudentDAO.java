@@ -1,9 +1,14 @@
 package dal;
 
+import dataobj.Student;
 import db.DBContext;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import query.Query;
 
 /**
@@ -33,5 +38,40 @@ public class StudentDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public ArrayList<Student> getListStudentRegister() {
+        Connection con = null;
+        DBContext db = new DBContext();
+        ArrayList<Student> listStudent = new ArrayList<>();
+        try {
+            con = db.getConnection();
+            Statement stmt = con.createStatement();
+            String sql = Query.SELECT_LIST_STUDENT;
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                String firstName = rs.getString(1);
+                String lastName = rs.getString(2);
+                Date DOB = rs.getDate(3);
+                boolean gender = rs.getBoolean(4);
+                int cardNo = rs.getInt(5);
+                Date cardDate = rs.getDate(6);
+                String cardPlace = rs.getString(7);
+                String address = rs.getString(8);
+                int telephone = rs.getInt(9);
+                String email = rs.getString(10);
+
+                Student std = new Student(firstName, lastName, DOB, gender,
+                        cardNo, cardDate, cardPlace, address, telephone, email);
+                listStudent.add(std);
+            }
+            rs.close();
+            stmt.close();
+            con.close();
+            return listStudent;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 }

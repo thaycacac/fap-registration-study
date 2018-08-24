@@ -17,11 +17,10 @@ public class ChooseCampusServlet extends HttpServlet {
             throws ServletException, IOException {
         //TODO: get campus id to insert student_campus
         request.setCharacterEncoding("utf-8");
-        
+
         request.getRequestDispatcher("/student/register.jsp").forward(request, response);
     }
 
-    
     @Override
     public String getServletInfo() {
         return "Short description";
