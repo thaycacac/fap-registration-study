@@ -6,13 +6,23 @@ package dataobj;
  */
 public class Campus {
 
+    private int id;
     private String name;
 
     public Campus() {
     }
 
-    public Campus(String name) {
+    public Campus(int id, String name) {
+        this.id = id;
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
