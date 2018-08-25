@@ -2,9 +2,10 @@ package dal;
 
 import db.DBContext;
 import java.sql.Connection;
-import java.sql.ResultSet;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
+import query.Query;
 
 /**
  *
@@ -12,24 +13,25 @@ import java.sql.Statement;
  */
 public class AcademicDAO {
 
-    public String getPassword(String username) {
+    public void insertStudent(String rollNumber, String memberCode,
+            String mode, Date enrollDate, int studentId) {
         Connection con = null;
         DBContext db = new DBContext();
         try {
             con = db.getConnection();
-            String sql = "SELECT password FROM Academic WHERE username = '" + username + "'";
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                String password = rs.getString(1);
-                return password;
-            }
-            rs.close();
+            String sql = Query.INSERT_ACADEMIC_STUDENT;
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, rollNumber);
+            stmt.setString(2, memberCode);
+            stmt.setString(3, mode);
+            stmt.setDate(4, enrollDate);
+            stmt.setInt(5, studentId);
+            stmt.executeUpdate();
             stmt.close();
             con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return null;
     }
+
 }

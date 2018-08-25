@@ -1,6 +1,6 @@
 package servlet;
 
-import dal.AcademicDAO;
+import dal.AcademicStaffDAO;
 import dal.StudentDAO;
 import dataobj.Student;
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class AcademicLoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        AcademicDAO acdDao = new AcademicDAO();
+        AcademicStaffDAO acdDao = new AcademicStaffDAO();
         String checkPassword = acdDao.getPassword(username);
         if (password.equals(checkPassword)) {
             StudentDAO stdDao = new StudentDAO();

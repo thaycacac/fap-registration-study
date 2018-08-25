@@ -30,10 +30,8 @@
                     <div class="form-group">
                         <label>Gender</label>
                         <div>
-                            <input type="radio" name="gender" value="1" class="gender" 
-                                   <c:if test="${student.gender == true}">checked</c:if>> Male
-                                   <input type="radio" name="gender" value="0" class="gender"
-                                   <c:if test="${student.gender == false}">checked</c:if>>Female
+                            <input type="radio" name="gender" value="1" class="gender"<c:if test="${student.gender == true}">checked</c:if>> Male
+                            <input type="radio" name="gender" value="0" class="gender"<c:if test="${student.gender == false}">checked</c:if>>Female
                             </div>
                         </div>
                         <div class="form-group">
@@ -60,7 +58,7 @@
                         <h3>For Acadamic Staff</h3><hr>
                         <div class="form-group">
                             <label>Roll Number</label>
-                            <input type="text" class="form-control input-student" value="${campusName}${student.id}" name="rollnumber" disabled>
+                            <input type="text" class="form-control input-student" value="${campusName}${student.id}" name="rollNumber" disabled>
                     </div>
                     <div class="form-group">
                         <label>Old Roll Number</label>

@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,7 +28,8 @@ public class ViewStudentServlet extends HttpServlet {
 
         CampusDAO cpDao = new CampusDAO();
         String campusName = cpDao.getShortNameCampus(student.getCampusId());
-        request.setAttribute("campusName", campusName);
+        HttpSession session = request.getSession();
+        session.setAttribute("campusName", campusName);
 
         SpecializedDAO spDao = new SpecializedDAO();
         String specializedCode = spDao.getCodeSpecialized(student.getSpecializedId());
