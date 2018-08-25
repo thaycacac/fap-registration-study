@@ -32,7 +32,7 @@
                             <li class="list-group-item">${student.firstName} ${student.lastName}
                                 <input type="hidden" value="${student.id}" name="studentId" />
                                 <button type="submit" class="btn btn-info">Info</button>
-                                <button type="submit" class="btn btn-info" formaction="RejectStudentServlet">View</button>
+                                <button type="submit" class="btn btn-info" formaction="InformationStudentServlet">View</button>
                             </li>
                         </form>
                     </c:forEach>

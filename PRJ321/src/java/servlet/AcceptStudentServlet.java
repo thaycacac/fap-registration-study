@@ -47,7 +47,7 @@ public class AcceptStudentServlet extends HttpServlet {
 
             StudentDAO stdDao = new StudentDAO();
             stdDao.acceptStudent(firstName, lastName, DOB, gender, address,
-                    telephone, email, getSpecializedId(specialized), id);
+                    telephone, membercode + "@fpt.edu.vn", getSpecializedId(specialized), id);
             AcademicDAO acdDao = new AcademicDAO();
             acdDao.insertStudent(rollNumber, membercode, mode, enrollDate, id);
 

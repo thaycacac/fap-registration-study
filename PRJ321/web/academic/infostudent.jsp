@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,18 +16,21 @@
                 <h1>Student Information </h1>
                 <hr>
                 <div class="card" style="width: 100%;">
-                    <img class="card-img-top" style="width: 200px;" src="http://fap.fpt.edu.vn/ImageHandler.ashx?rollNumber=SE05740&Campus=3"
+                    <img class="card-img-top" style="width: 200px;" src="${image}"
                          alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">Profile</h4>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Fullname: Nguyen Van Hoang</li>
-                        <li class="list-group-item">Date of birth: 22/03/1997</li>
-                        <li class="list-group-item">Gender: Male</li>
-                        <li class="list-group-item">ID Card: </li>
-                        <li class="list-group-item">Address: Xom 3 Bac, Kim No, Ha Noi</li>
-                        <li class="list-group-item">Email: hoangNCse04716@fpt.edu.vn</li>
+                        <li class="list-group-item">Fullname: ${student.firstName} ${student.lastName}</li>
+                        <li class="list-group-item">Date of birth: ${student.DOB}</li>
+                        <li class="list-group-item">Gender: 
+                            <c:if test="${student.gender == true}">Male</c:if>
+                            <c:if test="${student.gender == false}">Female</c:if>
+                            </li>
+                            <li class="list-group-item">ID Card: </li>
+                            <li class="list-group-item">Address: ${student.address}</li>
+                        <li class="list-group-item">Email: ${student.email}</li>
                         <li class="list-group-item">Date of issue: 14/03/2017</li>
                         <li class="list-group-item">Paice of issue:</li>
                     </ul>
@@ -33,11 +38,11 @@
                         <h4 class="card-title">Parent</h4>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Name: Nguyen Van Huy</li>
-                        <li class="list-group-item">Phone number: 0968038714</li>
-                        <li class="list-group-item">Gender: Male</li>
+                        <li class="list-group-item">Name: ....</li>
+                        <li class="list-group-item">Phone number: ....</li>
+                        <li class="list-group-item">Gender: ....</li>
                         <li class="list-group-item">ID Card: </li>
-                        <li class="list-group-item">Address: Xom 3 Bac, Kim No, Ha Noi</li>
+                        <li class="list-group-item">Address: ....</li>
                         <li class="list-group-item">Email: </li>
                         <li class="list-group-item">Job</li>
                         <li class="list-group-item">Place of work:</li>
@@ -46,12 +51,12 @@
                         <h4 class="card-title">Academic</h4>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Campus: FU-HL</li>
-                        <li class="list-group-item">Roll number: SE05740</li>
+                        <li class="list-group-item">Campus: ${campusName}</li>
+                        <li class="list-group-item">Roll number: ${acaStudent.rollNumber}</li>
                         <li class="list-group-item">Old RollNumber</li>
-                        <li class="list-group-item">Membercode: HOAPNSE05740</li>
-                        <li class="list-group-item">Enroll date: </li>
-                        <li class="list-group-item">Mode: Chinh Quy</li>
+                        <li class="list-group-item">Membercode: ${acaStudent.memberCode}</li>
+                        <li class="list-group-item">Enroll date: ${acaStudent.enrollDate}</li>
+                        <li class="list-group-item">Mode: ${acaStudent.mode}</li>
                     </ul>
                 </div>
             </div>
