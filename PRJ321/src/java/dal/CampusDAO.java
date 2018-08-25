@@ -4,6 +4,6 @@ package dal;
  *
  * @author Thaycacac
  */
-public class SpecializedDAO {
-     
+public class CampusDAO {
+    
 }

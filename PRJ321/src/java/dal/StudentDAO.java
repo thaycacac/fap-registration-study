@@ -90,7 +90,8 @@ public class StudentDAO {
             con = db.getConnection();
             Statement stmt = con.createStatement();
             String sql = "SELECT firstName, lastName, DOB, gender, cardNo, "
-                    + "cardDate, cardPlace, address, telephone, email FROM "
+                    + "cardDate, cardPlace, address, telephone, email, "
+                    + "specializedId, campusId FROM "
                     + "Student WHERE id = '" + id + "'";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {

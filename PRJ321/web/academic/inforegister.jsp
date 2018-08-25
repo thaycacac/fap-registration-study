@@ -32,7 +32,7 @@
                         <div>
                             <input type="radio" name="gender" value="male" class="gender" 
                                    <c:if test="${student.gender == true}">checked</c:if>> Male
-                            <input type="radio" name="gender" value="female" class="gender"
+                                   <input type="radio" name="gender" value="female" class="gender"
                                    <c:if test="${student.gender == false}">checked</c:if>>Female
                             </div>
                         </div>
@@ -51,16 +51,16 @@
                     <div class="form-group">
                         <label>Specialized</label>
                         <select class="form-control input-student" name="specialized">
-                            <option value="SE">Kỹ Thuật Phần Mềm</option>
-                            <option value="IA">An Toàn Thông Tin</option>
-                            <option value="SB">Quản Trị Kinh Doanh</option>
-                        </select>
-                    </div>
-                    <br>
-                    <h3>For Acadamic Staff</h3><hr>
-                    <div class="form-group">
-                        <label>Roll Number</label>
-                        <input type="text" class="form-control input-student" value="FUHL1" name="rollnumber" disabled>
+                            <option value="SE" <c:if test="${student.specializedId == 1}">selected</c:if>>Kỹ Thuật Phần Mềm</option>
+                            <option value="IA" <c:if test="${student.specializedId == 2}">selected</c:if>>An Toàn Thông Tin</option>
+                            <option value="SB" <c:if test="${student.specializedId == 3}">selected</c:if>>Quản Trị Kinh Doanh</option>
+                            </select>
+                        </div>
+                        <br>
+                        <h3>For Acadamic Staff</h3><hr>
+                        <div class="form-group">
+                            <label>Roll Number</label>
+                            <input type="text" class="form-control input-student" value="<c:choose><c:when test="${student.campusId == 8}">FU-HL</c:when><c:when test="${student.campusId == 9}">FU-HCM</c:when><c:when test="${student.campusId == 10}">FU-DN</c:when><c:when test="${student.campusId == 11}">FU-CT</c:when><c:when test="${student.campusId == 12}">MSE</c:when><c:when test="${student.campusId == 13}">FE-LAO</c:when></c:choose>${student.id}" name="rollnumber" disabled>
                     </div>
                     <div class="form-group">
                         <label>Old Roll Number</label>
