@@ -77,8 +77,8 @@
                         <input type="text" class="form-control"  name="mode">
                     </div>
                     <input type="hidden" name="studentId" value="${student.id}"/>
-                    <button type="submit" class="btn btn-success botton-academic">Accept</button>
-                    <button class="btn btn-danger botton-academic btn-reject">Reject</button>
+                    <button type="submit" class="btn btn-success botton-academic" >Accept</button>
+                    <button type="submit" class="btn btn-danger botton-academic btn-reject" formaction="RejectStudentServlet">Reject</button>
                 </form>
             </div>
         </div>

@@ -20,6 +20,10 @@
         <servlet-name>AcceptStudentServlet</servlet-name>
         <servlet-class>servlet.AcceptStudentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RejectStudentServlet</servlet-name>
+        <servlet-class>servlet.RejectStudentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/student/RegisterServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>AcceptStudentServlet</servlet-name>
         <url-pattern>/academic/AcceptStudentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RejectStudentServlet</servlet-name>
+        <url-pattern>/academic/RejectStudentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

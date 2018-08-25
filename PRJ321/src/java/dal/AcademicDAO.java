@@ -33,5 +33,22 @@ public class AcademicDAO {
             ex.printStackTrace();
         }
     }
+    
+    public void deleteStudent(String id) {
+        Connection con = null;
+        DBContext db = new DBContext();
+        try {
+            con = db.getConnection();
+            String sql = Query.DELETE_ACADEMIC_STUDENT;
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, id);
+            stmt.executeUpdate();
+            stmt.close();
+            con.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return;
+    }
 
 }
