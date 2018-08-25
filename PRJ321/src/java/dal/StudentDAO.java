@@ -122,4 +122,28 @@ public class StudentDAO {
         }
         return null;
     }
+
+    public String getNameFPT(int id) {
+        Connection con = null;
+        DBContext db = new DBContext();
+        try {
+            con = db.getConnection();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT lastname, dbo.getNameFPT(firstName) FROM Student WHERE id = " + id + "";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                String preName = rs.getString(1);
+                //convert utf8 to ASCII
+                String convert = java.text.Normalizer.normalize(preName, java.text.Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+                String postName = rs.getString(2);
+                return convert + postName;
+            }
+            rs.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }

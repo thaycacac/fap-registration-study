@@ -20,6 +20,7 @@ public class ViewStudentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int studentId = Integer.parseInt(request.getParameter("studentId"));
+
         StudentDAO stdDao = new StudentDAO();
         Student student = stdDao.getStudentById(studentId);
         request.setAttribute("student", student);
@@ -31,6 +32,9 @@ public class ViewStudentServlet extends HttpServlet {
         SpecializedDAO spDao = new SpecializedDAO();
         String specializedCode = spDao.getCodeSpecialized(student.getSpecializedId());
         request.setAttribute("specializedCode", specializedCode);
+
+        String nameFPT = stdDao.getNameFPT(student.getId());
+        request.setAttribute("nameFPT", nameFPT);
 
         request.getRequestDispatcher("/academic/inforegister.jsp").forward(request, response);
     }

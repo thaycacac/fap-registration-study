@@ -68,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <label>Member Code</label>
-                        <input type="text" class="form-control"  name="membercode">
+                        <input type="text" class="form-control"  name="membercode" value="${nameFPT}${specializedCode}${student.id}">
                     </div>
                     <div class="form-group">
                         <label>Enroll Date</label>
