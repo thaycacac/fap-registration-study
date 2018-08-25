@@ -13,6 +13,18 @@
         <div class="container">
             <div class="container-form">
                 <h1>List Student </h1>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Student Register<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Student</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
                 <hr>
                 <ul class="list-group">
                     <c:forEach var="student" items="${listRegister}">
@@ -20,6 +32,7 @@
                             <li class="list-group-item">${student.firstName} ${student.lastName}
                                 <input type="hidden" value="${student.id}" name="studentId" />
                                 <button type="submit" class="btn btn-info">Info</button>
+                                <button type="submit" class="btn btn-info" formaction="RejectStudentServlet">View</button>
                             </li>
                         </form>
                     </c:forEach>

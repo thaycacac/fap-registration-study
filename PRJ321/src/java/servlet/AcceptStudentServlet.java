@@ -49,8 +49,10 @@ public class AcceptStudentServlet extends HttpServlet {
             stdDao.acceptStudent(firstName, lastName, DOB, gender, address,
                     telephone, email, getSpecializedId(specialized), id);
             AcademicDAO acdDao = new AcademicDAO();
-            acdDao.insertStudent(rollNumber, membercode, mode, enrollDate, id
-            );
+            acdDao.insertStudent(rollNumber, membercode, mode, enrollDate, id);
+
+            request.setAttribute("message-success", "Accept Student Success");
+            request.getRequestDispatcher("/student/success.jsp").forward(request, response);
         }
     }
 

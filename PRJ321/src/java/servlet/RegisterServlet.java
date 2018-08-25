@@ -42,6 +42,8 @@ public class RegisterServlet extends HttpServlet {
             int gender = Integer.parseInt(genderStr);
             StudentDAO stdao = new StudentDAO();
             stdao.insertStudent(firstName, lastName, DOB, gender, address, telephone, email, specializedId, campusId);
+            
+            request.setAttribute("message-success", "Login Success");
             request.getRequestDispatcher("/student/success.jsp").forward(request, response);
         }
     }
