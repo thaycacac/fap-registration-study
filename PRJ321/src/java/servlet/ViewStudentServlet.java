@@ -1,5 +1,6 @@
 package servlet;
 
+import dal.CampusDAO;
 import dal.StudentDAO;
 import dataobj.Student;
 import java.io.IOException;
@@ -21,7 +22,11 @@ public class ViewStudentServlet extends HttpServlet {
         StudentDAO stdDao = new StudentDAO();
         Student student = stdDao.getStudentById(studentId);
         request.setAttribute("student", student);
-        
+
+        CampusDAO cpDao = new CampusDAO();
+        String campusName = cpDao.getShortNameCampus(student.getCampusId());
+        request.setAttribute("campusName", campusName);
+
         request.getRequestDispatcher("/academic/inforegister.jsp").forward(request, response);
     }
 

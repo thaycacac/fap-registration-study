@@ -60,7 +60,7 @@
                         <h3>For Acadamic Staff</h3><hr>
                         <div class="form-group">
                             <label>Roll Number</label>
-                            <input type="text" class="form-control input-student" value="<c:choose><c:when test="${student.campusId == 8}">FU-HL</c:when><c:when test="${student.campusId == 9}">FU-HCM</c:when><c:when test="${student.campusId == 10}">FU-DN</c:when><c:when test="${student.campusId == 11}">FU-CT</c:when><c:when test="${student.campusId == 12}">MSE</c:when><c:when test="${student.campusId == 13}">FE-LAO</c:when></c:choose>${student.id}" name="rollnumber" disabled>
+                            <input type="text" class="form-control input-student" value="${campusName}${student.id}" name="rollnumber" disabled>
                     </div>
                     <div class="form-group">
                         <label>Old Roll Number</label>
