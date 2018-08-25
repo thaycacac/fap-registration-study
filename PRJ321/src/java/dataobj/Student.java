@@ -19,6 +19,7 @@ public class Student {
     private String address;
     private int telephone;
     private String email;
+    
 
     public Student() {
     }
