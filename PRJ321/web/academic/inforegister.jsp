@@ -14,14 +14,14 @@
             <div class="container-form">
                 <h1>Information Register</h1>
                 <hr>
-                <form>
+                <form action="AcceptStudentServlet" method="POST">
                     <div class="form-group">
                         <label>First Name</label>
                         <input type="text" class="form-control input-student" value="${student.firstName}" name="firstname">
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control input-student" value="${student.lastName}" name="firstname">
+                        <input type="text" class="form-control input-student" value="${student.lastName}" name="lastname">
                     </div>
                     <div class="form-group">
                         <label>Date Of Birth</label>
@@ -30,9 +30,9 @@
                     <div class="form-group">
                         <label>Gender</label>
                         <div>
-                            <input type="radio" name="gender" value="male" class="gender" 
+                            <input type="radio" name="gender" value="1" class="gender" 
                                    <c:if test="${student.gender == true}">checked</c:if>> Male
-                                   <input type="radio" name="gender" value="female" class="gender"
+                                   <input type="radio" name="gender" value="0" class="gender"
                                    <c:if test="${student.gender == false}">checked</c:if>>Female
                             </div>
                         </div>
@@ -78,7 +78,8 @@
                         <label>Mode</label>
                         <input type="text" class="form-control"  name="mode">
                     </div>
-                    <button type="submit" class="btn btn-success botton-academic">Apply</button>
+                    <input type="hidden" name="studentId" value="${student.id}"/>
+                    <button type="submit" class="btn btn-success botton-academic">Accept</button>
                     <button class="btn btn-danger botton-academic btn-reject">Reject</button>
                 </form>
             </div>

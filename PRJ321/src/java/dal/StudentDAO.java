@@ -146,4 +146,30 @@ public class StudentDAO {
         }
         return null;
     }
+
+    public void acceptStudent(String firstName, String lastName, String DOB,
+            int gender, String address, String telephone, String email,
+            int specializedId, int studentId) {
+        Connection con = null;
+        DBContext db = new DBContext();
+        try {
+            con = db.getConnection();
+            String sql = Query.UPDATE_STUDENT;
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, firstName);
+            stmt.setString(2, lastName);
+            stmt.setString(3, DOB);
+            stmt.setInt(4, gender);
+            stmt.setString(5, address);
+            stmt.setString(6, telephone);
+            stmt.setString(7, email);
+            stmt.setInt(8, specializedId);
+            stmt.setInt(9, studentId);
+            stmt.executeUpdate();
+            stmt.close();
+            con.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
