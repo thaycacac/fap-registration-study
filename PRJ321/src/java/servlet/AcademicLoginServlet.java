@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -19,12 +20,16 @@ public class AcademicLoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
         AcademicStaffDAO acdDao = new AcademicStaffDAO();
         String checkPassword = acdDao.getPassword(username);
-        if (password.equals(checkPassword)) {
+        if (password.equals(checkPassword) || session.getAttribute("username") != null) {
+            session.setAttribute("username", username);
+
             StudentDAO stdDao = new StudentDAO();
             ArrayList<Student> listStudent = new ArrayList<>();
             ArrayList<Student> listRegister = new ArrayList<>();
