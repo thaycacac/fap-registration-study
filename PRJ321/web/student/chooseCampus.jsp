@@ -17,7 +17,7 @@
                 <form action="ChooseCampusServlet" method="POST">
                     <div class="form-group">
                         <label>Select Campus</label>
-                        <select class="form-control" name="campus">
+                        <select class="form-control" name="campusId">
                             <option value="8">FU-Hòa Lạc</option>
                             <option value="9">FU-Hồ Chí Minh</option>
                             <option value="10">FU-Đà Nẵng</option>

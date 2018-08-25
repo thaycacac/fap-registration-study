@@ -18,7 +18,7 @@ public class ChooseCampusServlet extends HttpServlet {
         //TODO: get campus id to insert student_campus
         request.setCharacterEncoding("utf-8");
         int campusId = Integer.parseInt(request.getParameter("campusId"));
-        request.setAttribute("campusId", campusId);
+        request.getServletContext().setAttribute("campusId", campusId);
 
         request.getRequestDispatcher("/student/register.jsp").forward(request, response);
     }

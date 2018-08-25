@@ -18,7 +18,7 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
-        int campusId = (int) request.getAttribute("campusId");
+        int campusId = (int) request.getServletContext().getAttribute("campusId");
 
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("lastname");
