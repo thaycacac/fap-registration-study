@@ -2,8 +2,6 @@ package servlet;
 
 import dal.StudentDAO;
 import java.io.IOException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,12 +12,14 @@ import javax.servlet.http.HttpServletResponse;
  * @author Thaycacac
  */
 public class RegisterServlet extends HttpServlet {
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        
+
+        int campusId = (int) request.getAttribute("campusId");
+
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("lastname");
         String DOB = request.getParameter("dob");
@@ -27,7 +27,8 @@ public class RegisterServlet extends HttpServlet {
         String address = request.getParameter("address");
         String telephone = request.getParameter("telephone");
         String email = request.getParameter("email");
-        
+        int specializedId = Integer.parseInt(request.getParameter("specialized"));
+
         if (firstName == null || firstName.trim().isEmpty()
                 || lastName == null || lastName.trim().isEmpty()
                 || DOB == null || DOB.trim().isEmpty()
@@ -40,11 +41,11 @@ public class RegisterServlet extends HttpServlet {
         } else {
             int gender = Integer.parseInt(genderStr);
             StudentDAO stdao = new StudentDAO();
-            stdao.insertStudent(firstName, lastName, DOB, gender, address, telephone, email);
+            stdao.insertStudent(firstName, lastName, DOB, gender, address, telephone, email, specializedId, campusId);
             request.getRequestDispatcher("/student/success.jsp").forward(request, response);
         }
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";

@@ -49,9 +49,9 @@
                     <div class="form-group">
                         <label>Specialized</label>
                         <select class="form-control" name="specialized">
-                            <option value="SE">Kỹ Thuật Phần Mềm</option>
-                            <option value="IA">An Toàn Thông Tin</option>
-                            <option value="SB">Quản Trị Kinh Doanh</option>
+                            <option value="1">Kỹ Thuật Phần Mềm</option>
+                            <option value="2">An Toàn Thông Tin</option>
+                            <option value="3">Quản Trị Kinh Doanh</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Register</button>

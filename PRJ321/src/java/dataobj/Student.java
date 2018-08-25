@@ -19,12 +19,17 @@ public class Student {
     private String address;
     private int telephone;
     private String email;
-    
+    private int specializedId;
+    private int campusId;
+    private int parentId;
 
     public Student() {
     }
 
-    public Student(int id, String firstName, String lastName, Date DOB, boolean gender, int cardNo, Date cardDate, String cardPlace, String address, int telephone, String email) {
+    public Student(int id, String firstName, String lastName, Date DOB, 
+            boolean gender, int cardNo, Date cardDate, String cardPlace, 
+            String address, int telephone, String email, int specializedId, 
+            int campusId, int parentId) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -36,6 +41,9 @@ public class Student {
         this.address = address;
         this.telephone = telephone;
         this.email = email;
+        this.specializedId = specializedId;
+        this.campusId = campusId;
+        this.parentId = parentId;
     }
 
     public int getId() {
@@ -124,6 +132,30 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getSpecializedId() {
+        return specializedId;
+    }
+
+    public void setSpecializedId(int specializedId) {
+        this.specializedId = specializedId;
+    }
+
+    public int getCampusId() {
+        return campusId;
+    }
+
+    public void setCampusId(int campusId) {
+        this.campusId = campusId;
+    }
+
+    public int getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
     }
 
 }

@@ -18,7 +18,8 @@ import query.Query;
 public class StudentDAO {
 
     public void insertStudent(String firstName, String lastName, String DOB,
-            int gender, String address, String telephone, String email) {
+            int gender, String address, String telephone, String email,
+            int specializedId, int campusId) {
         Connection con = null;
         DBContext db = new DBContext();
         try {
@@ -32,6 +33,8 @@ public class StudentDAO {
             stmt.setString(5, address);
             stmt.setString(6, telephone);
             stmt.setString(7, email);
+            stmt.setInt(8, specializedId);
+            stmt.setInt(9, campusId);
             stmt.executeUpdate();
             stmt.close();
             con.close();
@@ -61,9 +64,12 @@ public class StudentDAO {
                 String address = rs.getString(9);
                 int telephone = rs.getInt(10);
                 String email = rs.getString(11);
+                int specializedId = rs.getInt(12);
+                int campusId = rs.getInt(13);
 
                 Student std = new Student(id, firstName, lastName, DOB, gender,
-                        cardNo, cardDate, cardPlace, address, telephone, email);
+                        cardNo, cardDate, cardPlace, address, telephone, email,
+                        specializedId, campusId, 0);
                 listStudent.add(std);
             }
             rs.close();
@@ -98,9 +104,12 @@ public class StudentDAO {
                 String address = rs.getString(8);
                 int telephone = rs.getInt(9);
                 String email = rs.getString(10);
+                int specializedId = rs.getInt(11);
+                int campusId = rs.getInt(12);
 
                 Student std = new Student(id, firstName, lastName, DOB, gender,
-                        cardNo, cardDate, cardPlace, address, telephone, email);
+                        cardNo, cardDate, cardPlace, address, telephone, email,
+                        specializedId, campusId, 0);
                 listStudent.add(std);
                 return std;
             }
