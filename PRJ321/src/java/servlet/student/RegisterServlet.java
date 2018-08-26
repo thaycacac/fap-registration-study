@@ -1,4 +1,4 @@
-package servlet;
+package servlet.student;
 
 import dal.StudentDAO;
 import java.io.IOException;
@@ -43,8 +43,8 @@ public class RegisterServlet extends HttpServlet {
             StudentDAO stdao = new StudentDAO();
             stdao.insertStudent(firstName, lastName, DOB, gender, address, telephone, email, specializedId, campusId);
             
-            request.setAttribute("message-success", "Login Success");
-            request.getRequestDispatcher("/student/success.jsp").forward(request, response);
+            request.setAttribute("success", "Login Success");
+            request.getRequestDispatcher("/public/success.jsp").forward(request, response);
         }
     }
 

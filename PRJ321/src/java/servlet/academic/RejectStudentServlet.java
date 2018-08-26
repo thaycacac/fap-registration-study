@@ -1,4 +1,4 @@
-package servlet;
+package servlet.academic;
 
 import dal.AcademicDAO;
 import dal.StudentDAO;

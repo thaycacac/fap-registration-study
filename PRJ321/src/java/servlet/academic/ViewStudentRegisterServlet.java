@@ -1,4 +1,4 @@
-package servlet;
+package servlet.academic;
 
 import dal.CampusDAO;
 import dal.SpecializedDAO;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Thaycacac
  */
-public class ViewStudentServlet extends HttpServlet {
+public class ViewStudentRegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

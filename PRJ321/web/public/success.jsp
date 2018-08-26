@@ -11,7 +11,7 @@
     <body>
         <div class="container">
             <div class="container-form">
-                <h1 class="register-success">${message-success}</h1>
+                <h1 class="register-success">${success}</h1>
             </div>
         </div>
     </body>

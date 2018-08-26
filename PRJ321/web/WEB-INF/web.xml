@@ -1,32 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>AuthenticationStudentFilter</filter-name>
+        <filter-class>filter.AuthenticationStudentFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationStudentFilter</filter-name>
+        <url-pattern>/student/register.jsp</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationStudentFilter</filter-name>
+        <url-pattern>/student/success.jsp</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>servlet.RegisterServlet</servlet-class>
+        <servlet-class>servlet.student.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ChooseCampusServlet</servlet-name>
-        <servlet-class>servlet.ChooseCampusServlet</servlet-class>
+        <servlet-class>servlet.student.ChooseCampusServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AcademicLoginServlet</servlet-name>
-        <servlet-class>servlet.AcademicLoginServlet</servlet-class>
+        <servlet-class>servlet.academic.AcademicLoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewStudentServlet</servlet-name>
-        <servlet-class>servlet.ViewStudentServlet</servlet-class>
+        <servlet-class>servlet.academic.ViewStudentRegisterServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AcceptStudentServlet</servlet-name>
-        <servlet-class>servlet.AcceptStudentServlet</servlet-class>
+        <servlet-class>servlet.academic.AcceptStudentServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RejectStudentServlet</servlet-name>
-        <servlet-class>servlet.RejectStudentServlet</servlet-class>
+        <servlet-class>servlet.academic.RejectStudentServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>InformationStudentServlet</servlet-name>
-        <servlet-class>servlet.InformationStudentServlet</servlet-class>
+        <servlet-class>servlet.academic.InformationStudentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
