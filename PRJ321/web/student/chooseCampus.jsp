@@ -11,6 +11,7 @@
     <body>
         <div class="container">
             <div class="container-form">
+                <h4 class="error">${error}</h4>
                 <h1>FPT University</h1>
                 <p>FPT University opens its Enrollment page for students to register their study campus and their specialization.</p>
                 <hr>

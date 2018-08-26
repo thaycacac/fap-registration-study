@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -18,7 +19,9 @@ public class ChooseCampusServlet extends HttpServlet {
         //TODO: get campus id to insert student_campus
         request.setCharacterEncoding("utf-8");
         int campusId = Integer.parseInt(request.getParameter("campusId"));
-        request.getServletContext().setAttribute("campusId", campusId);
+
+        HttpSession session = request.getSession();
+        session.setAttribute("campusId", campusId);
 
         request.getRequestDispatcher("/student/register.jsp").forward(request, response);
     }

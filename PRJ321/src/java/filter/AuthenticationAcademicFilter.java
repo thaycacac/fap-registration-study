@@ -17,29 +17,26 @@ import javax.servlet.http.HttpSession;
  *
  * @author Thaycacac
  */
-public class AuthenticationStudentFilter implements Filter {
+public class AuthenticationAcademicFilter implements Filter {
 
     private static final boolean debug = true;
 
-    // The filter configuration object we are associated with.  If
-    // this value is null, this filter instance is not currently
-    // configured. 
     private FilterConfig filterConfig = null;
 
-    public AuthenticationStudentFilter() {
+    public AuthenticationAcademicFilter() {
     }
 
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("AuthenticationStudentFilter:DoBeforeProcessing");
+            log("AuthenticationAcademicFilter:DoBeforeProcessing");
         }
     }
 
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("AuthenticationStudentFilter:DoAfterProcessing");
+            log("AuthenticationAcademicFilter:DoAfterProcessing");
         }
     }
 
@@ -48,7 +45,7 @@ public class AuthenticationStudentFilter implements Filter {
             throws IOException, ServletException {
 
         if (debug) {
-            log("AuthenticationStudentFilter:doFilter()");
+            log("AuthenticationAcademicFilter:doFilter()");
         }
 
         doBeforeProcessing(request, response);
@@ -56,16 +53,18 @@ public class AuthenticationStudentFilter implements Filter {
             DO FILTER
          */
         HttpSession session = ((HttpServletRequest) request).getSession();
-        String campusId = String.valueOf(session.getAttribute("campusId"));
-        if (campusId == null) {
-            request.setAttribute("error", "You must be choose campus");
-            request.getRequestDispatcher("/student/chooseCampus.jsp").forward(request, response);
+        String username = (String) session.getAttribute("username");
+        if (username == null) {
+            request.setAttribute("errorLogin", "You must be login");
+            request.getRequestDispatcher("/academic/login.jsp").forward(request, response);
             return;
         }
+
         Throwable problem = null;
         try {
             chain.doFilter(request, response);
         } catch (Throwable t) {
+
             problem = t;
             t.printStackTrace();
         }
@@ -92,6 +91,11 @@ public class AuthenticationStudentFilter implements Filter {
         return (this.filterConfig);
     }
 
+    /**
+     * Set the filter configuration object for this filter.
+     *
+     * @param filterConfig The filter configuration object
+     */
     public void setFilterConfig(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
     }
@@ -109,7 +113,7 @@ public class AuthenticationStudentFilter implements Filter {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
             if (debug) {
-                log("AuthenticationStudentFilter:Initializing filter");
+                log("AuthenticationAcademicFilter:Initializing filter");
             }
         }
     }
@@ -120,9 +124,9 @@ public class AuthenticationStudentFilter implements Filter {
     @Override
     public String toString() {
         if (filterConfig == null) {
-            return ("AuthenticationStudentFilter()");
+            return ("AuthenticationAcademicFilter()");
         }
-        StringBuffer sb = new StringBuffer("AuthenticationStudentFilter(");
+        StringBuffer sb = new StringBuffer("AuthenticationAcademicFilter(");
         sb.append(filterConfig);
         sb.append(")");
         return (sb.toString());

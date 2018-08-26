@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -18,7 +19,8 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
-        int campusId = (int) request.getServletContext().getAttribute("campusId");
+        HttpSession session = request.getSession();
+        int campusId = (int) session.getAttribute("campusId");
 
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("lastname");

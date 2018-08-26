@@ -4,6 +4,34 @@
         <filter-name>AuthenticationStudentFilter</filter-name>
         <filter-class>filter.AuthenticationStudentFilter</filter-class>
     </filter>
+    <filter>
+        <filter-name>AuthenticationAcademicFilter</filter-name>
+        <filter-class>filter.AuthenticationAcademicFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationAcademicFilter</filter-name>
+        <url-pattern>/academic/listregister</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationAcademicFilter</filter-name>
+        <url-pattern>/academic/infostudent</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationAcademicFilter</filter-name>
+        <url-pattern>/academic/inforegister</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
     <filter-mapping>
         <filter-name>AuthenticationStudentFilter</filter-name>
         <url-pattern>/student/register.jsp</url-pattern>
