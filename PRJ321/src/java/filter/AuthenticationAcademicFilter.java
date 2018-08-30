@@ -54,7 +54,7 @@ public class AuthenticationAcademicFilter implements Filter {
          */
         HttpSession session = ((HttpServletRequest) request).getSession();
         String username = (String) session.getAttribute("username");
-        if (username == null) {
+        if (username == null || username.trim().isEmpty()) {
             request.setAttribute("errorLogin", "You must be login");
             request.getRequestDispatcher("/academic/login.jsp").forward(request, response);
             return;

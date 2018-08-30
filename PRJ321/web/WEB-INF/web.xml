@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <filter>
-        <filter-name>AuthenticationStudentFilter</filter-name>
-        <filter-class>filter.AuthenticationStudentFilter</filter-class>
-    </filter>
-    <filter>
         <filter-name>AuthenticationAcademicFilter</filter-name>
         <filter-class>filter.AuthenticationAcademicFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>AuthenticationAcademicFilter</filter-name>
-        <url-pattern>/academic/listregister</url-pattern>
+        <url-pattern>/academic/listregister.jsp</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
@@ -18,7 +14,7 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>AuthenticationAcademicFilter</filter-name>
-        <url-pattern>/academic/infostudent</url-pattern>
+        <url-pattern>/academic/listFPT.jsp</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
@@ -26,23 +22,15 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>AuthenticationAcademicFilter</filter-name>
-        <url-pattern>/academic/inforegister</url-pattern>
+        <url-pattern>/academic/infostudent.jsp</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
     <filter-mapping>
-        <filter-name>AuthenticationStudentFilter</filter-name>
-        <url-pattern>/student/register.jsp</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-        <dispatcher>INCLUDE</dispatcher>
-        <dispatcher>ERROR</dispatcher>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>AuthenticationStudentFilter</filter-name>
-        <url-pattern>/student/success.jsp</url-pattern>
+        <filter-name>AuthenticationAcademicFilter</filter-name>
+        <url-pattern>/academic/inforegister.jsp</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
