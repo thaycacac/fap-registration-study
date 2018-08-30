@@ -50,7 +50,46 @@ public class StudentDAO {
         try {
             con = db.getConnection();
             Statement stmt = con.createStatement();
-            String sql = Query.SELECT_LIST_STUDENT;
+            String sql = Query.SELECT_LIST_STUDENT_REGISTER;
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String firstName = rs.getString(2);
+                String lastName = rs.getString(3);
+                Date DOB = rs.getDate(4);
+                boolean gender = rs.getBoolean(5);
+                int cardNo = rs.getInt(6);
+                Date cardDate = rs.getDate(7);
+                String cardPlace = rs.getString(8);
+                String address = rs.getString(9);
+                int telephone = rs.getInt(10);
+                String email = rs.getString(11);
+                int specializedId = rs.getInt(12);
+                int campusId = rs.getInt(13);
+
+                Student std = new Student(id, firstName, lastName, DOB, gender,
+                        cardNo, cardDate, cardPlace, address, telephone, email,
+                        specializedId, campusId, 0);
+                listStudent.add(std);
+            }
+            rs.close();
+            stmt.close();
+            con.close();
+            return listStudent;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    
+    public ArrayList<Student> getListStudentFPT() {
+        Connection con = null;
+        DBContext db = new DBContext();
+        ArrayList<Student> listStudent = new ArrayList<>();
+        try {
+            con = db.getConnection();
+            Statement stmt = con.createStatement();
+            String sql = Query.SELECT_LIST_STUDENT_ACCEPT;
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 int id = rs.getInt(1);

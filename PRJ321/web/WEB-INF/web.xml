@@ -76,6 +76,14 @@
         <servlet-name>InformationStudentServlet</servlet-name>
         <servlet-class>servlet.academic.InformationStudentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShowListStudentRegisterServlet</servlet-name>
+        <servlet-class>servlet.academic.ShowListStudentRegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowListStudentFPTServlet</servlet-name>
+        <servlet-class>servlet.academic.ShowListStudentFPTServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/student/RegisterServlet</url-pattern>
@@ -103,6 +111,14 @@
     <servlet-mapping>
         <servlet-name>InformationStudentServlet</servlet-name>
         <url-pattern>/academic/InformationStudentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowListStudentRegisterServlet</servlet-name>
+        <url-pattern>/academic/ShowListStudentRegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowListStudentFPTServlet</servlet-name>
+        <url-pattern>/academic/ShowListStudentFPTServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
