@@ -8,6 +8,7 @@
         <link href="../myStyle.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
+        <link rel="shortcut icon" href="../favicon.ico"/>
     </head>
     <body>
         <div class="container">
@@ -28,11 +29,10 @@
                 <hr>
                 <ul class="list-group">
                     <c:forEach var="student" items="${listFPT}">
-                        <form action="ViewStudentServlet" method="POST">
+                        <form action="InformationStudentServlet" method="POST">
                             <li class="list-group-item">${student.firstName} ${student.lastName}
                                 <input type="hidden" value="${student.id}" name="studentId" />
-                                <button type="submit" class="btn btn-info">Info</button>
-                                <button type="submit" class="btn btn-info" formaction="InformationStudentServlet">View</button>
+                                <button type="submit" class="btn btn-info">Information</button>
                             </li>
                         </form>
                     </c:forEach>

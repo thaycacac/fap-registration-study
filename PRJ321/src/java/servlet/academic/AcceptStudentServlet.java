@@ -34,25 +34,31 @@ public class AcceptStudentServlet extends HttpServlet {
         String rollNumber = session.getAttribute("campusName") + studentId;
         String membercode = request.getParameter("membercode");
         String mode = request.getParameter("mode");
-        Date enrollDate = Date.valueOf(request.getParameter("enrolldate"));
+        Date enrollDate = null;
+        try {
+            enrollDate = Date.valueOf(request.getParameter("enrolldate"));
+            if (membercode == null || membercode.trim().isEmpty()
+                    || mode == null || mode.trim().isEmpty()
+                    || enrollDate == null) {
+                
+                request.setAttribute("error", "You must be input Member Code and Mode, Enroll Date");
+                request.getRequestDispatcher("/academic/error.jsp").forward(request, response);
 
-        if (membercode == null || membercode.trim().isEmpty()
-                || mode == null || mode.trim().isEmpty()
-                || enrollDate == null) {
+            } else {
+                int gender = Integer.parseInt(strGender);
+                int id = Integer.parseInt(studentId);
+
+                StudentDAO stdDao = new StudentDAO();
+                stdDao.acceptStudent(firstName, lastName, DOB, gender, address,
+                        telephone, membercode + "@fpt.edu.vn", getSpecializedId(specialized), id);
+                AcademicDAO acdDao = new AcademicDAO();
+                acdDao.insertStudent(rollNumber, membercode, mode, enrollDate, id);
+
+                response.sendRedirect("ShowListStudentRegisterServlet");
+            }
+        } catch (Exception ex) {
             request.setAttribute("error", "You must be input Member Code and Mode, Enroll Date");
-            request.getRequestDispatcher("/academic/error.jsp").forward(request, response);
-        } else {
-            int gender = Integer.parseInt(strGender);
-            int id = Integer.parseInt(studentId);
-
-            StudentDAO stdDao = new StudentDAO();
-            stdDao.acceptStudent(firstName, lastName, DOB, gender, address,
-                    telephone, membercode + "@fpt.edu.vn", getSpecializedId(specialized), id);
-            AcademicDAO acdDao = new AcademicDAO();
-            acdDao.insertStudent(rollNumber, membercode, mode, enrollDate, id);
-
-            request.setAttribute("message-success", "Accept Student Success");
-            request.getRequestDispatcher("/student/success.jsp").forward(request, response);
+            request.getRequestDispatcher("/public/error.jsp").forward(request, response);
         }
     }
 

@@ -25,8 +25,7 @@ public class RejectStudentServlet extends HttpServlet {
         StudentDAO stdDao = new StudentDAO();
         stdDao.deleteStudent(studentId);
 
-        request.setAttribute("message-success", "Reject Student Success");
-        request.getRequestDispatcher("/student/success.jsp").forward(request, response);
+        response.sendRedirect("ShowListStudentRegisterServlet");
     }
 
     @Override
