@@ -18,23 +18,29 @@ Private information
 - [x]     **Address:** Their resident address
 - [x]     **Telephone:** Their telephone number or mobile
 - [x]     **Email:** Their email address
+    
 Parent Information
+
 - [x]     **Name**: Name of the protector/parent
 - [x]     **Phone number:** Telephone number of the protector/parent
 - [x]     **Address:** Protector/parent’s resident address
 - [x]     **Email:** Email address of the protector/parent
 - [x]     **Job:** Occupation of the protector/parent
 - [x]     **Place of Work:** The place where protector/parent is employee
+    
  Academic Informatio
+ 
 - [x]     **Campus**	: Place to study
 - [x]     **Specialization:** Specialization to study
+    
 Academic Information
+
 - [x]     **RollNumber**	(Auto generated follow the format : Campus Short form + student
                             identified number)
 - [ ]     **Old Rollnumber:**	RollNumber for students who changed their campus or specialization
 - [x]     **Membercode:** The account student could use to login to system of the university
-- [ ]     **Enroll date:** The enroll date of student
-- [ ]     **Mode:** Mode of the academic
+- [x]     **Enroll date:** The enroll date of student
+- [x]     **Mode:** Mode of the academic
 
 The tasks in this assignment are:
 1. You have to design a database to store student information in which there are 3 tables Student, Parent, Academic.
